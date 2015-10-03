@@ -3,68 +3,59 @@ from PythonClientAPI.libs.Game.MapOutOfBoundsException import *
 
 
 class PlayerAI:
-    def __init__(self):
+    def __init__( self ):
         # Initialize any objects or variables you need here.
-        pass
+        self.turret_positions   = []
+        self.power_up_positions = []
+        self.wall_positions     = []
 
-    def get_move(self, gameboard, player, opponent):
-        
+    def get_move( self, gameboard, player, opponent ):
+        # Write the AI here
 
-    def turn_right(self):
-        # turns the bot to the face right
-        return Move.FACE_RIGHT
+    def get_turret_positions( self, gameboard ):
+        # gets all the turrets present on the board
 
-    def turn_left(self):
-        # turns the bot to the face left
-        return Move.FACE_LEFT
+        for row in range( gameboard.width ):
+            
+            for col in range( gameboard.height ):
+                
+                if gameboard.is_turret_at_tile( row, col ):
 
-    def turn_up(self):
-        # turns the bot to the face up
-        return Move.FACE_UP
+                    # append the position to the turret pos list
+                    self.turret_positions.append( (col, row) )
 
-    def turn_down(self):
-        # turns the bot to the face down
-        return Move.FACE_DOWN
+        # if no turrets are present on the board, set the list to None
+        if self.turret_positions == []:
+            self.turret_positions = None
 
-    def move_forward(self):
-        # moves the bot forward
-        return Move.FORWARD
+    def get_power_up_positions( self, gameboard ):
+        # gets all the power ups present on the board
 
-    def move_none(self):
-    	# no move
-    	return Move.NONE;
+        for row in range( gameboard.width ):
 
-    def shoot(self):
-    	# shoot a bullet in the direction currently facing
-    	return Move.SHOOT;
+            for col in range( gameboard.height ):
 
-    def shield(self):
-    	# shiled yourself for 5 turns
-    	return Move.SHIELD;
+                if gameboard.is_power_up_at_tile( row, col ):
 
-    def laser(self):
-    	#shoot lasers
-    	return Move.LASER;
+                    # append the position to the power ups pos list
+                    self.power_up_positions.append( (col, row) )
 
-    def teleport(self, position):
-    	# teleport to position
-    	if position == 0:
-    		return Move.TELEPORT_0;
+        # if not power ups are present on the board, set the list to None
+        if self.power_up_positions == []:
+            self.power_up_positions = None
 
-    	elif position == 1:
-    		return Move.TELEPORT_1;
-    	
-    	elif position == 2:
-    		return Move.TELEPORT_2;
-    	
-    	elif position == 3:
-    		return Move.TELEPORT_3;
-    	
-    	elif position == 4:
-    		return Move.TELEPORT_4;
-    	
-    	elif position == 5:
-    		return Move.TELEPORT_5;
+    def get_wall_positions( self, gameboard ):
+        # gets all the wall present on the board
 
-    	else:
-    		print("Teleport position should be between 0 & 5.")
+        for row in range( gameboard.width ):
+            
+            for col in range( gameboard.height ):
+                
+                if gameboard.is_wall_at_tile( row, col ):
+
+                    # append the position to the wall pos list
+                    self.wall_positions.append( (col, row) )
+
+        # if no walls are present on the board, set the list to None
+        if self.wall_positions == []:
+            self.wall_positions = None
