@@ -9,20 +9,40 @@ class PlayerAI:
 
     def get_move(self, gameboard, player, opponent):
         # Write your AI here.
-        return Move.NONE
+        return self.move_right()
+
+    def turn_right(self):
+        # turns the bot to the face right
+        return Move.FACE_RIGHT
+
+    def turn_left(self):
+        # turns the bot to the face left
+        return Move.FACE_LEFT
+
+    def turn_up(self):
+        # turns the bot to the face up
+        return Move.FACE_UP
+
+    def turn_down(self):
+        # turns the bot to the face down
+        return Move.FACE_DOWN
 
     def move_right(self):
-        Move.FACE_RIGHT
-        MOVE.FORWARD
+        # moves the bot to the right
+        self.turn_right()
+        return Move.FORWARD
 
     def move_left(self):
-        Move.FACE_LEFT
-        Move.FORWARD
+        # moves the bot to the left
+        self.turn_left()
+        return Move.FORWARD
 
     def move_up(self):
-        Move.FACE_UP
-        Move.FORWARD
+        # moves the bot to up
+        self.turn_up()
+        return Move.FORWARD
 
     def move_down(self):
-        Move.FACE_DOWN
-        Move.FORWARD
+        # moves the bot down
+        self.turn_down()
+        return Move.FORWARD
