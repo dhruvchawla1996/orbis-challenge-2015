@@ -8,8 +8,7 @@ class PlayerAI:
         pass
 
     def get_move(self, gameboard, player, opponent):
-        # Write your AI here.
-        return self.shoot()
+        
 
     def turn_right(self):
         # turns the bot to the face right
@@ -68,4 +67,4 @@ class PlayerAI:
     		return Move.TELEPORT_5;
 
     	else:
-    		raise TeleportOutOfBoundsError("Teleport position should be between 0 & 5.")
+    		print("Teleport position should be between 0 & 5.")
