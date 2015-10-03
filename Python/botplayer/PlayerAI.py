@@ -27,24 +27,8 @@ class PlayerAI:
         # turns the bot to the face down
         return Move.FACE_DOWN
 
-    def move_right(self):
-        # moves the bot to the right
-        self.turn_right()
-        return Move.FORWARD
-
-    def move_left(self):
-        # moves the bot to the left
-        self.turn_left()
-        return Move.FORWARD
-
-    def move_up(self):
-        # moves the bot up
-        self.turn_up()
-        return Move.FORWARD
-
-    def move_down(self):
-        # moves the bot down
-        self.turn_down()
+    def move_forward(self):
+        # moves the bot forward
         return Move.FORWARD
 
     def move_none(self):
