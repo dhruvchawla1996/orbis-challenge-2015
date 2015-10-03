@@ -10,6 +10,18 @@ class PlayerAI:
         self.wall_positions     = []
 
     def get_move( self, gameboard, player, opponent ):
+        # if we haven't already, get the turret positions
+        if self.turret_positions == []:
+            self.get_turret_positions( gameboard )
+
+        # if we haven't already, get the power up positions
+        if self.power_up_positions == []:
+            self.get_power_up_positions( gameboard )
+
+        # if we haven't already, get the wall positions
+        if self.wall_positions == []:
+            self.get_wall_positions( gameboard )
+
 	    if player.x < opponent.x:
 	    	if player.direction == Direction.RIGHT:
 	    		return Move.FORWARD
@@ -31,19 +43,6 @@ class PlayerAI:
 	    			return Move.SHOOT
 	    		else:
 	    			return Move.FACE_DOWN
-
-
-        # if we haven't already, get the turret positions
-        if self.turret_positions == []:
-            self.get_turret_positions( gameboard )
-
-        # if we haven't already, get the power up positions
-        if self.power_up_positions == []:
-            self.get_power_up_positions( gameboard )
-
-        # if we haven't already, get the wall positions
-        if self.wall_positions == []:
-            self.get_wall_positions( gameboard )
 
     def get_turret_positions( self, gameboard ):
         # gets all the turrets present on the board
@@ -92,5 +91,3 @@ class PlayerAI:
         # if no walls are present on the board, set the list to None
         if self.wall_positions == []:
             self.wall_positions = None
-
-
