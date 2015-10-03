@@ -38,7 +38,7 @@ class PlayerAI:
         return Move.FORWARD
 
     def move_up(self):
-        # moves the bot to up
+        # moves the bot up
         self.turn_up()
         return Move.FORWARD
 
