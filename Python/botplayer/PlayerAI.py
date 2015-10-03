@@ -33,6 +33,18 @@ class PlayerAI:
 	    			return Move.FACE_DOWN
 
 
+        # if we haven't already, get the turret positions
+        if self.turret_positions == []:
+            self.get_turret_positions( gameboard )
+
+        # if we haven't already, get the power up positions
+        if self.power_up_positions == []:
+            self.get_power_up_positions( gameboard )
+
+        # if we haven't already, get the wall positions
+        if self.wall_positions == []:
+            self.get_wall_positions( gameboard )
+
     def get_turret_positions( self, gameboard ):
         # gets all the turrets present on the board
 
