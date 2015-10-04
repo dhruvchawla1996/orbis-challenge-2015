@@ -99,6 +99,17 @@ class PlayerAI:
 
     def face_direction( self, player, position ):
         # orients the player to face a certain direction
+        
+        # the x and y coords of the position to face
+        to_face_x = position[0]
+        to_face_y = position[1]
+
+        player_x_pos = player.x
+        player_y_pos = player.y
+
+        if to_face_x > player_x_pos:
+
+            if to_face_y < player_y_pos:
 
     def turret_in_range( self, player ):
         # checks if we are 4 blocks or less away from a turret, and if we
